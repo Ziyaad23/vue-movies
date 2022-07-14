@@ -22,7 +22,7 @@
         </div>
       </div>
     </router-link>
-    <form @submit.prevent="searchMovies()">
+    <form @submit.prevent="searchMovies()" class="my-5 max-w-lg w-full mx-auto">
       <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only">Search</label>
       <div class="relative">
         <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
@@ -44,7 +44,7 @@
         <router-link :to="'/movie/' + movie.imdbID">
           <div class="flex justify-center min-h-[750px]">
             <div class="rounded-lg shadow-lg bg-white max-w-sm">
-              <img class="w-full rounded-t-lg h-[555px]" :src="movie.Poster" alt="Movie Poster" />
+              <img class="w-full rounded-t-lg" :src="movie.Poster" alt="Movie Poster" />
               <div class="p-6 text-center">
                 <h5 class="text-gray-900 text-xl font-medium mb-2">{{ movie.Title }}</h5>
                 <p class="text-gray-700 text-base mb-4 capitalize ">
