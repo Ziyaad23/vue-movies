@@ -39,8 +39,25 @@
           class="text-white absolute right-2.5 bottom-2.5 bg-green-400 font-medium rounded-lg text-sm px-4 py-2">Search</button>
       </div>
     </form>
-    <div>
-      Movies
+    <div class="p-2 grid grid-cols-2 gap-3 lg:grid-cols-5 lg:gap-5">
+      <div v-for="movie in movies" :key="movie.imdbID">
+        <router-link :to="'/movie/' + movie.imdbID">
+          <div class="flex justify-center min-h-[750px]">
+            <div class="rounded-lg shadow-lg bg-white max-w-sm">
+              <img class="w-full rounded-t-lg h-[555px]" :src="movie.Poster" alt="Movie Poster" />
+              <div class="p-6 text-center">
+                <h5 class="text-gray-900 text-xl font-medium mb-2">{{ movie.Title }}</h5>
+                <p class="text-gray-700 text-base mb-4 capitalize ">
+                  {{ movie.Type }}
+                </p>
+                <p class="text-gray-700 text-base mb-4">
+                  {{ movie.Year }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </router-link>
+      </div>
     </div>
 
   </section>
@@ -61,6 +78,8 @@ export default {
           .then(response => response.json())
           .then(data => {
             console.log(data);
+            movies.value = data.Search;
+            search.value = "";
           });
       }
     }
