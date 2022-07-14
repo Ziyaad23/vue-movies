@@ -6,12 +6,16 @@ import { RouterLink, RouterView } from "vue-router";
   <header>
     <div>
       <nav>
-        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/">
+          <h1
+            class="flex items-center justify-center px-2.5 py-4 bg-green-400 text-white text-2xl font-bold font-mono drop-shadow">
+            OMDb Movies
+          </h1>
+        </RouterLink>
       </nav>
     </div>
   </header>
   <main>
-    <h1 class="text-3xl font-bold underline text-center">Hello world!</h1>
+    <RouterView />
   </main>
-  <RouterView />
 </template>
